@@ -32,7 +32,7 @@ const Contact = () => {
         href="https://twitter.com/Wimukthi316"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-4 bg-white/10 hover:bg-white/20 transition-all duration-300 p-4 rounded-lg shadow-lg"
+        className="flex items-center gap-4 bg-white/10 hover:bg-white/80 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
         >
         <FaTwitter size={30} className="text-blue-400" />
         <span className="text-lg">Twitter</span>
