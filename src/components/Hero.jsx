@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="mt-4 sm:mt-6">
           <a
             href="/Resume.pdf" // Path to the resume file
-            download="Wimukthi Gunarathna Resume.pdf"
+            download="Wimukthi Gunarathna.pdf"
             className="inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full text-xs sm:text-sm md:text-lg font-semibold shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
           >
             Download My Resume
@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-6">
+        <div className="mt-20">
           <img
             src="/astro.png"
             alt="Decorative"
