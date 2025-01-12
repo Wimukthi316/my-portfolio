@@ -26,7 +26,7 @@ const Hero = () => {
   <div className="mt-6">
     <a
         href="/resume.pdf" // Path to the resume file
-        download="Wimukthi Gunarathna Resume.pdf" // Suggested filename for the download
+        download="Wimukthi Gunarathna Resume.pdf"
         className="inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
     >
       Download My Resume
@@ -47,7 +47,14 @@ const Hero = () => {
     </a>
   </div>
 </div>
-
+{/* Image Section */}
+<div className="absolute top-1/2 right-10 md:right-40 transform -translate-y-1/2">
+        <img
+            src="/astro.png"
+            alt="Decorative"
+            className="w-72 md:w-96 lg:w-[32rem] object-cover rounded-lg shadow-lg animate-float"
+        />
+    </div>
       
     </div>
   );
