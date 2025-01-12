@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -53,7 +53,7 @@ const Contact = () => {
 
       {/* Footer Note */}
       <p className="mt-12 text-center text-white text-sm">
-        © {new Date().getFullYear()} Wimukthi Gunarathna. All rights reserved.
+        © {new Date().getFullYear()} Sadini Wanniaracchchi. All rights reserved.
       </p>
     </section>
   );
