@@ -21,7 +21,7 @@ const Contact = () => {
           href="https://www.linkedin.com/in/wimukthi-gunarathna-40b452259/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 bg-black/70 hover:bg-black/80 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
+          className="flex items-center gap-4 bg-black/70 hover:bg-gray-600 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
         >
           <FaLinkedin size={30} className="text-blue-400" />
           <span className="text-lg">LinkedIn</span>
@@ -32,7 +32,7 @@ const Contact = () => {
         href="https://twitter.com/Wimukthi316"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-4 bg-white/10 hover:bg-white/80 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
+        className="flex items-center gap-4 bg-black/70 hover:bg-gray-600 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
         >
         <FaTwitter size={30} className="text-blue-400" />
         <span className="text-lg">Twitter</span>
@@ -43,7 +43,7 @@ const Contact = () => {
           href="https://github.com/Wimukthi316"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 bg-black/70 hover:bg-black/80 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
+          className="flex items-center gap-4 bg-black/70 hover:bg-gray-600 transition-all duration-300 p-4 rounded-lg shadow-md w-full sm:w-auto"
         >
           <FaGithub size={30} className="text-gray-300" />
           <span className="text-lg">GitHub</span>
@@ -53,7 +53,7 @@ const Contact = () => {
 
       {/* Footer Note */}
       <p className="mt-12 text-center text-white text-sm">
-        © {new Date().getFullYear()} Sadini Wanniaracchchi. All rights reserved.
+        © {new Date().getFullYear()} Wimukthi Gunarathna. All rights reserved.
       </p>
     </section>
   );
