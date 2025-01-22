@@ -3,6 +3,7 @@ import CaffeenaImg from "../assets/cafeena.png";
 import HarvestBrewImg from "../assets/harvestbrew.png";
 import SmoothieImg from "../assets/smoothie.png";
 import FemmeFitImg from "../assets/femmefit.png";
+import HaiPizaImg from "../assets/haipiza.png";
 
 const projects = [
   {
@@ -27,12 +28,27 @@ const projects = [
     link: "https://caffeena.netlify.app/", // Add your project link here
   },
   {
+    name: "HAIPIZA",
+    img: HaiPizaImg,
+    description:
+      "HAIPIZA is a Pizza shop mobile app UI design using a red colour theme to attract users. .",
+    link: "https://github.com/Wimukthi316/Hai-Piza", // Update if there's an error
+  },
+  {
     name: "SMOOTHIE",
     img: SmoothieImg,
     description:
       "SMOOTHIE is a smoothie shop mobile app UI design using a light purple theme to attract users.",
-    link: "https://smoothie-app.com", // Add your project link here
+    link: "https:", // Add your project link here
   },
+  {
+    name: "LISTMATE",
+    img: SmoothieImg,
+    description:
+      "SMOOTHIE is a smoothie shop mobile app UI design using a light purple theme to attract users.",
+    link: "https:", // Add your project link here
+  },
+  
   
 ];
 
