@@ -6,18 +6,25 @@ import FemmeFitImg from "../assets/femmefit.png";
 
 const projects = [
   {
-    name: "CAFFEENA",
-    img: CaffeenaImg,
+    name: "FEMMEFIT",
+    img: FemmeFitImg,
     description:
-      "CAFFEENA is a coffee shop website developed using HTML, CSS, and JavaScript, offering a clean, modern UI.",
-    link: "https://caffeena-project.com", // Add your project link here
+      "FEMMEFIT is a modern trending women's fashion website built with React and Tailwind CSS.",
+    link: "https://femmefitclothing.netlify.app/", // Add your project link here
   },
   {
     name: "HARVESTBREW",
     img: HarvestBrewImg,
     description:
       "HARVESTBREW is a website for a tea shop built with React and Tailwind CSS, focusing on user-friendly navigation and aesthetic design.",
-    link: "https://harvestbrew-project.com", // Add your project link here
+    link: "https://harvestbrew.netlify.app/", // Add your project link here
+  },
+  {
+    name: "CAFFEENA",
+    img: CaffeenaImg,
+    description:
+      "CAFFEENA is a coffee shop website developed using HTML, CSS, and JavaScript, offering a clean, modern UI.",
+    link: "https://caffeena.netlify.app/", // Add your project link here
   },
   {
     name: "SMOOTHIE",
@@ -26,13 +33,7 @@ const projects = [
       "SMOOTHIE is a smoothie shop mobile app UI design using a light purple theme to attract users.",
     link: "https://smoothie-app.com", // Add your project link here
   },
-  {
-    name: "FEMMEFIT",
-    img: FemmeFitImg,
-    description:
-      "FEMMEFIT is a modern trending women's fashion website built with React and Tailwind CSS.",
-    link: "https://femmefit.com", // Add your project link here
-  },
+  
 ];
 
 const Projects = () => {
