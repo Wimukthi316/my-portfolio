@@ -1,44 +1,89 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen bg-[#03070e] font-serif flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen bg-[#03070e] text-white font-serif flex items-center justify-center overflow-hidden"
     >
-      {/* Title Outside the Main Content */}
-      <h2 className="text-5xl lg:text-6xl font-extrabold text-white mb-12 text-center">
+      {/* Section Title with Animation */}
+      <motion.h2
+        className="absolute top-10 justify-center text-5xl font-bold text-gray-200 tracking-wide"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         About Me
-      </h2>
+      </motion.h2>
 
-      {/* Content Wrapper */}
-      <div className="relative z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/80 backdrop-blur-lg p-12 rounded-3xl shadow-2xl border border-white/10 max-w-4xl mx-4 lg:mx-auto text-center">
-        <p className="text-xl text-gray-200 leading-relaxed">
-          <span className="text-[#FFC371] text-2xl mr-2">🚀</span>
-          I'm a passionate frontend developer with experience in building
-          modern and responsive websites. I specialize in creating efficient,
-          scalable, and visually appealing user interfaces using React, Tailwind CSS, and other modern web technologies.
-        </p>
-        <p className="text-xl text-gray-200 leading-relaxed mt-6">
-          <span className="text-[#FF5F6D] text-2xl mr-2">✨</span>
-          With expertise in <strong className="text-[#FFC371]">JavaScript</strong>,{" "}
-          <strong className="text-[#FFC371]">HTML</strong>,{" "}
-          <strong className="text-[#FFC371]">CSS</strong>, and responsive design principles,
-          I ensure every project delivers a seamless and engaging user experience. I’m dedicated to creating user-centric designs that stand out in today’s fast-evolving web landscape.
-        </p>
-        <div className="mt-10">
-          {/* Call-to-action button */}
-          <button className="px-8 py-4 bg-gradient-to-r from-[#FF5F6D] to-[#FFC371] text-black font-bold rounded-full shadow-lg hover:shadow-[#FFC371]/50 hover:scale-110 transform transition duration-300">
-            Explore My Work
-          </button>
-        </div>
-      </div>
+      {/* Content Section with Scroll Animation */}
+      <motion.div
+        className="relative z-10 bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20 max-w-4xl mx-auto -mt-5"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.25 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        {/* Animated Paragraphs */}
+        <motion.p
+          className="text-lg text-gray-300 leading-relaxed mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+        >
+          🚀 Passionate frontend developer dedicated to crafting modern,
+          responsive, and immersive web experiences. I specialize in React,
+          Tailwind CSS, and intuitive UI/UX design. With a detail-oriented
+          mindset, I create sleek and efficient digital solutions. 🚀
+        </motion.p>
 
-      {/* Decorative Floating Elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#BA84FF] opacity-70 blur-3xl rounded-s-3xl animate-floating"></div>
-      <div className="absolute top-4 right-4 w-48 h-48 bg-[#53C4DD] opacity-70 blur-3xl rounded-full animate-floating"></div>
-      <div className="absolute bottom-4 left-4 w-48 h-48 bg-[#7C8CF7] opacity-70 blur-3xl rounded-full animate-floating"></div>
-      <div className="absolute bottom-4 right-4 w-48 h-48 bg-[#1E556D] opacity-70 blur-3xl rounded-full animate-floating"></div>
+        <motion.p
+          className="text-lg text-gray-300 leading-relaxed"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
+        >
+          ✨ Skilled in JavaScript, component-based architecture, and API
+          integrations, I transform ideas into seamless digital experiences.
+          Constantly evolving with the latest frontend trends to bring
+          *cutting-edge* innovation to my work. ✨
+        </motion.p>
+
+        {/* Skills Section */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
+        >
+          {[
+            "React",
+            "JavaScript",
+            "Tailwind CSS",
+            "UX/UI Design",
+            "Node.js",
+          ].map((skill, index) => (
+            <span
+              key={index}
+              className="px-4 py-2 bg-white/10 text-gray-200 rounded-full text-sm border border-blue-500 shadow-md shadow-blue-500/20 transition-all duration-300 hover:bg-purple-500/20"
+            >
+              {skill}
+            </span>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-16 left-16 w-16 h-16 bg-[#FFC371] opacity-30 blur-2xl rounded-full animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-[#FF5F6D] opacity-40 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute top-1/3 left-1/2 w-10 h-10 bg-[#34D399] opacity-25 blur-2xl rounded-full animate-bounce"></div>
+      <div className="absolute top-1/4 right-1/4 w-14 h-14 bg-[#FFD700] opacity-35 blur-3xl rounded-full animate-bounce"></div>
+      <div className="absolute bottom-16 left-1/3 w-18 h-18 bg-[#FF4500] opacity-20 blur-2xl rounded-full animate-pulse"></div>
+      <div className="absolute top-2/3 left-10 w-12 h-12 bg-[#7FFFD4] opacity-25 blur-2xl rounded-full animate-bounce"></div>
     </section>
   );
 };
