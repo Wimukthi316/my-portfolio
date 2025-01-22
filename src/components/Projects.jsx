@@ -4,6 +4,7 @@ import HarvestBrewImg from "../assets/harvestbrew.png";
 import SmoothieImg from "../assets/smoothie.png";
 import FemmeFitImg from "../assets/femmefit.png";
 import HaiPizaImg from "../assets/haipiza.png";
+import ListMateImg from "../assets/listmate.png";
 
 const projects = [
   {
@@ -35,19 +36,20 @@ const projects = [
     link: "https://github.com/Wimukthi316/Hai-Piza", // Update if there's an error
   },
   {
+    name: "LISTMATE",
+    img: ListMateImg,
+    description:
+      "List Mate Is Multitasking Mobile Application with timer, update, delete tasks. Create using Room Database",
+    link: "https://github.com/Wimukthi316/List-Mate", // Add your project link here
+  },
+  {
     name: "SMOOTHIE",
     img: SmoothieImg,
     description:
       "SMOOTHIE is a smoothie shop mobile app UI design using a light purple theme to attract users.",
     link: "https:", // Add your project link here
   },
-  {
-    name: "LISTMATE",
-    img: SmoothieImg,
-    description:
-      "SMOOTHIE is a smoothie shop mobile app UI design using a light purple theme to attract users.",
-    link: "https:", // Add your project link here
-  },
+  
   
   
 ];
