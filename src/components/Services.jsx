@@ -7,9 +7,9 @@ const Services = () => {
     <section className="bg-[#03070e] py-16 px-6 font-serif relative">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-white">Services From Me</h2>
+        <h2 className="text-5xl font-bold text-white">Services From Me</h2>
         <p className="text-white mt-2">
-          Our expertise to help bring your ideas to life
+          My expertise to help bring your ideas to life
         </p>
       </div>
 
@@ -27,7 +27,7 @@ const Services = () => {
             Icon: FaMobileAlt,
             title: "Mobile Development",
             description:
-              "Creating cross-platform mobile applications for Android and iOS.",
+              "Creating mobile applications for Android using Kotlin and React.",
           },
           {
             Icon: FaLaptopCode,

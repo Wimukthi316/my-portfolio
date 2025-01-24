@@ -19,7 +19,7 @@ const Contact = () => {
 
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">Contact Me</h2>
+          <h2 className="text-5xl font-bold">Contact Me</h2>
         </div>
 
         {/* Contact Form */}

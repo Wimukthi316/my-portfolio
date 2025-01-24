@@ -7,7 +7,9 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 w-full text-white z-50 font-serif py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">Wimukthi Gunarathna</h1>
+        <h1 className="text-2xl font-bold hover:text-[#8B5CF6]">
+          Wimukthi Gunarathna
+        </h1>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
@@ -51,22 +53,117 @@ const Navbar = () => {
 
         {/* Navbar Links for Desktop */}
         <div className="hidden md:flex space-x-14 text-xl">
-          <a href="#home" className="hover:text-[#f6af2a]">Home</a>
-          <a href="#about" className="hover:text-[#f6af2a]">About</a>
-          <a href="#projects" className="hover:text-[#f6af2a]">Projects</a>
-          <a href="#contact" className="hover:text-[#f6af2a]">Contact</a>
+          <a href="#home" className="hover:text-[#8B5CF6]">
+            Home
+          </a>
+          <a href="#about" className="hover:text-[#8B5CF6]">
+            About
+          </a>
+          <a href="#projects" className="hover:text-[#8B5CF6]">
+            Projects
+          </a>
+          <a href="#contact" className="hover:text-[#8B5CF6]">
+            Contact
+          </a>
         </div>
       </div>
 
-      {/* Mobile Menu Links */}
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="bg-black text-white px-4 pb-4 space-y-2">
-          <a href="#home" className="block hover:text-[#f6af2a]">Home</a>
-          <a href="#about" className="block hover:text-[#f6af2a]">About</a>
-          <a href="#projects" className="block hover:text-[#f6af2a]">Projects</a>
-          <a href="#skills" className="block hover:text-[#f6af2a]">Skills</a>
-          <a href="#contact" className="block hover:text-[#f6af2a]">Contact</a>
-        </div>
+      {/* Redesigned Mobile Menu Links */}
+      <div
+        className={`absolute top-16 right-4 w-64 rounded-lg bg-[#1A1A1A] shadow-lg transition-all duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <ul className="flex flex-col py-4">
+          <li>
+            <a
+              href="#home"
+              className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 mr-3 text-gray-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 12l2-2m0 0l7-7 7 7m-9-2v12"
+                />
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 mr-3 text-gray-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l3-3m-3 3l-3-3"
+                />
+              </svg>
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 mr-3 text-gray-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6h12M6 12h12m-7 6h7"
+                />
+              </svg>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 mr-3 text-gray-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16 21v-2a4 4 0 00-8 0v2m8-6a4 4 0 00-8 0m-4-6a9 9 0 1118 0 9 9 0 01-18 0z"
+                />
+              </svg>
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );

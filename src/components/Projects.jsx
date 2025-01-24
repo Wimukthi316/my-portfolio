@@ -68,7 +68,7 @@ const projects = [
 const Projects = () => {
   return (
     <div id="projects" className="bg-[#03070e] text-white pt-2 pb-20 px-5 font-serif relative">
-      <h2 className="text-center text-4xl font-extrabold mb-16">
+      <h2 className="text-center text-5xl font-extrabold mb-16">
         <span className="relative inline-block">My Projects</span>
       </h2>
 
@@ -82,7 +82,7 @@ const Projects = () => {
             className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-5 shadow-md hover:shadow-lg transition-all duration-300"
             initial={{ opacity: 0, y: 50 }} // Initial hidden state
             whileInView={{ opacity: 1, y: 0 }} // Animation when in view
-            viewport={{ once: false, amount: 0.2 }} // Trigger animation when 20% visible
+            viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% visible
             transition={{ duration: 0.8, delay: index * 0.2 }} // Staggered animation
           >
             <img
@@ -98,7 +98,7 @@ const Projects = () => {
               {project.languages.map((lang, langIndex) => (
                 <span
                   key={langIndex}
-                  className="bg-[#1E1E1E] text-blue-400 text-sm px-3 py-1 rounded-full"
+                  className="bg-[#1E1E1E] text-purple-400 text-sm px-3 py-1 rounded-full"
                 >
                   {lang}
                 </span>
