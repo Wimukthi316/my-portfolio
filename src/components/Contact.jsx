@@ -105,7 +105,7 @@ const Contact = () => {
           </div>
 
           {/* Copyright */}
-          <p className="text-gray-500 text-sm font-semibold">
+          <p className="text-gray-500 text-sm font-semibold mb-3">
             © {new Date().getFullYear()} Wimukthi Gunarathna. All rights reserved.
           </p>
         </div>
