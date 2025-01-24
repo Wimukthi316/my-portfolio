@@ -8,7 +8,7 @@ const Hero = () => {
       <NightSky />
 
       {/* Content Section */}
-      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl text-center space-y-4 sm:space-y-6 px-4 sm:px-6 lg:px-8 mt-2">
+      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl text-center space-y-6 px-4 sm:px-6 lg:px-8 mt-2">
         <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
           Welcome to my Portfolio!
         </p>
@@ -46,11 +46,11 @@ const Hero = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-12 sm:mt-16 lg:mt-20">
+        <div className="mt-20">
           <img
             src="/astro.png"
             alt="Decorative"
-            className="w-20 sm:w-28 md:w-36 lg:w-48 object-cover rounded-lg shadow-lg animate-float mx-auto"
+            className="w-28 sm:w-36 md:w-48 lg:w-64 object-cover rounded-lg shadow-lg animate-float mx-auto"
           />
         </div>
       </div>

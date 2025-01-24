@@ -7,19 +7,26 @@ import {
   FaReact,
   FaFigma,
   FaAndroid,
+  FaNodeJs,
+  FaPython,
 } from "react-icons/fa";
-import { SiKotlin, SiTailwindcss } from "react-icons/si";
+import { SiKotlin, SiTailwindcss, SiMongodb, SiMysql, SiExpress } from "react-icons/si";
 import { TbVector } from "react-icons/tb"; // UX/UI Designing Icon
 
 const skills = [
-  { name: "HTML", icon: <FaHtml5 className="text-[#FF5733]" /> },
-  { name: "CSS", icon: <FaCss3Alt className="text-[#1E90FF]" /> },
-  { name: "JavaScript", icon: <FaJs className="text-[#F7DF1E]" /> },
   { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
-  { name: "Figma", icon: <FaFigma className="text-[#A259FF]" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-[#68A063]" /> },
+  { name: "JavaScript", icon: <FaJs className="text-[#F7DF1E]" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+  { name: "Express.js", icon: <SiExpress className="text-[#539E43]" /> },
+  { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
+  { name: "MySQL", icon: <SiMysql className="text-[#00758F]" /> },
   { name: "Android Studio", icon: <FaAndroid className="text-[#3DDC84]" /> },
   { name: "Kotlin", icon: <SiKotlin className="text-[#796EFF]" /> },
+  { name: "HTML", icon: <FaHtml5 className="text-[#FF5733]" /> },
+  { name: "CSS", icon: <FaCss3Alt className="text-[#1E90FF]" /> },
   { name: "TailwindCSS", icon: <SiTailwindcss className="text-[#38BDF8]" /> },
+  { name: "Figma", icon: <FaFigma className="text-[#A259FF]" /> },
   { name: "UX/UI Designing", icon: <TbVector className="text-[#FF6D9D]" /> },
 ];
 
@@ -32,13 +39,13 @@ const Skills = () => {
           <motion.div
             key={index}
             className="relative group flex flex-col items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-2xl p-8 transition-transform duration-300 transform hover:-translate-y-2 hover:bg-white/20"
-            initial={{ x: -100, opacity: 0 }}  // Start at the current position (not off-screen)
-            whileInView={{ x: 0, opacity: 1 }}  // Stay in place, just fade in
+            initial={{ x: -100, opacity: 0 }} // Start at the current position (not off-screen)
+            whileInView={{ x: 0, opacity: 1 }} // Stay in place, just fade in
             viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the card is visible
             transition={{
               type: "spring",
               stiffness: 250, // Increased stiffness for faster animation
-              damping: 30,    // Slightly less damping for smoother motion
+              damping: 30, // Slightly less damping for smoother motion
               delay: index * 0.1, // Shortened delay for faster staggered animation
             }}
           >
