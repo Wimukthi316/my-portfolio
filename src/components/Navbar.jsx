@@ -4,10 +4,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-[#1A1A1A] text-white relative shadow-lg font-serif py-3 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 w-full">
+    <nav className="absolute top-0 left-0 w-full text-white z-50 font-serif py-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <h1 className="text-2xl font-bold ">Wimukthi Gunarathna</h1>
+        <h1 className="text-2xl font-bold">Wimukthi Gunarathna</h1>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Links */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="bg-[#1A1A1A] text-white px-4 pb-4 space-y-2">
+        <div className="bg-black text-white px-4 pb-4 space-y-2">
           <a href="#home" className="block hover:text-[#f6af2a]">Home</a>
           <a href="#about" className="block hover:text-[#f6af2a]">About</a>
           <a href="#projects" className="block hover:text-[#f6af2a]">Projects</a>

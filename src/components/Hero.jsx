@@ -8,7 +8,7 @@ const Hero = () => {
       <NightSky />
 
       {/* Content Section */}
-      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl text-center space-y-6 px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl text-center space-y-6 px-4 sm:px-6 lg:px-8 mt-5">
         <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
           Welcome to my Portfolio!
         </p>
