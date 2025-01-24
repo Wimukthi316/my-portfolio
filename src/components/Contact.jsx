@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -54,16 +54,31 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows="5"
-                className="w-full p-3 bg-[#0d121d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-[#0d121d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2"
                 placeholder="Your Message"
               ></textarea>
             </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300"
-              >
-                Send Message
+            <div className="flex justify-center">
+              <button className="relative flex items-center px-11 py-3 text-white bg-gradient-to-r from-purple-600 to-indigo-500 rounded-3xl group overflow-hidden transition-transform duration-200 hover:scale-95">
+                {/* Icon */}
+                <div className="absolute flex items-center justify-center w-10 h-10 transition-all duration-300 left-3 group-hover:left-1/2 group-hover:-translate-x-1/2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-6 h-6 text-white transform transition-transform group-hover:scale-110"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                      fill="currentColor"
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    ></path>
+                  </svg>
+                </div>
+
+                {/* Text */}
+                <span className="ml-3 transition-transform duration-300 group-hover:translate-x-[200%]">
+                  Send Message
+                </span>
               </button>
             </div>
           </form>
@@ -74,7 +89,7 @@ const Contact = () => {
       <footer className="bg-[#03070e] text-white py-8 px-4 font-serif">
         <div className="max-w-7xl mx-auto text-center space-y-6">
           {/* Footer Title */}
-          <p className="text-gray-400 text-2xl">
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500 text-2xl">
             Crafting ideas into reality. Let's connect!
           </p>
 
@@ -84,7 +99,7 @@ const Contact = () => {
               href="https://github.com/Wimukthi316"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-all duration-300"
+              className="text-gray-400 hover:text-purple-500 transition-all duration-300 hover:-translate-y-2"
             >
               <FaGithub />
             </a>
@@ -92,13 +107,13 @@ const Contact = () => {
               href="https://www.linkedin.com/in/wimukthi-gunarathna-40b452259/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-all duration-300"
+              className="text-gray-400 hover:text-purple-500 transition-all duration-300 hover:-translate-y-2"
             >
               <FaLinkedin />
             </a>
             <a
               href="mailto:wimukthi316@gmail.com"
-              className="text-gray-400 hover:text-blue-500 transition-all duration-300"
+              className="text-gray-400 hover:text-purple-500 transition-all duration-300 hover:-translate-y-2"
             >
               <FaEnvelope />
             </a>
