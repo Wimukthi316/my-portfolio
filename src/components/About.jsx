@@ -5,11 +5,11 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen bg-[#03070e] text-white font-serif flex items-center justify-center overflow-hidden"
+      className="relative bg-[#03070e] text-white font-serif flex flex-col items-center justify-start pt-10 pb-20 overflow-hidden min-h-screen"
     >
       {/* Section Title with Animation */}
       <motion.h2
-        className="absolute top-10 justify-center text-5xl font-bold text-gray-200 tracking-wide"
+        className="text-5xl font-bold text-gray-200 tracking-wide mb-24"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -19,7 +19,7 @@ const About = () => {
 
       {/* Content Section with Scroll Animation */}
       <motion.div
-        className="relative z-10 bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20 max-w-4xl mx-auto -mt-5"
+        className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-lg border border-white/20 max-w-4xl w-full mx-4"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.25 }}
@@ -60,7 +60,7 @@ const About = () => {
           viewport={{ once: false, amount: 0.25 }}
           transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
         >
-          {[
+          {[ 
             "React",
             "JavaScript",
             "Tailwind CSS",

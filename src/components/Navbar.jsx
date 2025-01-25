@@ -103,6 +103,9 @@ const Navbar = () => {
           <a href="#projects" className="hover:text-[#8B5CF6]">
             Projects
           </a>
+          <a href="#skills" className="hover:text-[#8B5CF6]">
+            Skills
+          </a>
           <a href="#contact" className="hover:text-[#8B5CF6]">
             Contact
           </a>
@@ -184,6 +187,29 @@ const Navbar = () => {
                 />
               </svg>
               Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#skills"
+              className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+              onClick={closeMenu}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5 mr-3 text-gray-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              Skills
             </a>
           </li>
           <li>

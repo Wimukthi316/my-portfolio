@@ -5,26 +5,28 @@ const NightSky = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    if (!mountRef.current) return; // Ensure the mountRef is available
+    if (!mountRef.current) return;
 
     // Create Scene, Camera, and Renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / window.innerHeight,
+      mountRef.current.clientWidth / mountRef.current.clientHeight,
       0.1,
       1000
     );
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio); // Improve rendering quality
     mountRef.current.appendChild(renderer.domElement);
 
-    // Handle Window Resize
+    // Handle Resize
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     };
+
     window.addEventListener("resize", handleResize);
 
     // Create Stars
@@ -59,7 +61,7 @@ const NightSky = () => {
 
     animate();
 
-    // Cleanup Function
+    // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
       if (mountRef.current && renderer.domElement) {
@@ -71,7 +73,13 @@ const NightSky = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-screen bg-black"></div>;
+  return (
+    <div
+      ref={mountRef}
+      className="absolute inset-0 w-full h-full"
+      style={{ overflow: "hidden" }}
+    ></div>
+  );
 };
 
 export default NightSky;

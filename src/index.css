@@ -29,4 +29,14 @@
   transform: translateX(0);
 }
 
-/* You can remove the nth-child rules because we'll handle the delay programmatically in JavaScript */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color:#03070e; /* Black background to fill white space */
+  z-index: -1; /* Place behind the content */
+}
+
