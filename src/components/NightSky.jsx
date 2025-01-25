@@ -1,25 +1,39 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 const NightSky = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
+    if (!mountRef.current) return; // Ensure the mountRef is available
+
+    // Create Scene, Camera, and Renderer
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Geometry for stars
+    // Handle Window Resize
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Create Stars
     const starsGeometry = new THREE.BufferGeometry();
     const starsMaterial = new THREE.PointsMaterial({
-      color: 0xffffff,           // Bright white stars
-      size: 1,                   // Increased size for better visibility
-      emissive: 0x555555,        // Glowing effect
-      emissiveIntensity: 0.8,    // Stronger glow
-      transparent: true,         // Transparency for soft glow
-      opacity: 0.8               // Slight opacity for smooth blending
+      color: 0xffffff,
+      size: 1,
+      transparent: true,
+      opacity: 0.8,
     });
 
     const starVertices = [];
@@ -29,13 +43,13 @@ const NightSky = () => {
       starVertices.push(THREE.MathUtils.randFloatSpread(2000)); // z
     }
 
-    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-
+    starsGeometry.setAttribute("position", new THREE.Float32BufferAttribute(starVertices, 3));
     const starField = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(starField);
 
     camera.position.z = 1;
 
+    // Animation Loop
     const animate = () => {
       requestAnimationFrame(animate);
       starField.rotation.x += 0.0005;
@@ -45,8 +59,15 @@ const NightSky = () => {
 
     animate();
 
+    // Cleanup Function
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      window.removeEventListener("resize", handleResize);
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
+      starsGeometry.dispose();
+      starsMaterial.dispose();
     };
   }, []);
 

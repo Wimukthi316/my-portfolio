@@ -3,11 +3,17 @@ import React, { useState, useEffect, useRef } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  // Close menu when clicking outside
+  // Close menu when clicking outside or on a menu item
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
         setIsOpen(false);
       }
     };
@@ -25,6 +31,16 @@ const Navbar = () => {
     };
   }, []);
 
+  // Toggle mobile menu
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  // Close menu on menu item click
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="absolute top-0 left-0 w-full text-white z-50 font-serif py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -36,7 +52,10 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            ref={buttonRef}
+            onClick={toggleMenu}
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
             className="text-white focus:outline-none"
           >
             {isOpen ? (
@@ -102,6 +121,7 @@ const Navbar = () => {
             <a
               href="#home"
               className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+              onClick={closeMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +144,7 @@ const Navbar = () => {
             <a
               href="#about"
               className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+              onClick={closeMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,6 +167,7 @@ const Navbar = () => {
             <a
               href="#projects"
               className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+              onClick={closeMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -168,6 +190,7 @@ const Navbar = () => {
             <a
               href="#contact"
               className="flex items-center px-4 py-3 text-sm font-medium text-white hover:bg-[#262626] hover:text-[#8B5CF6] transition-all rounded-md"
+              onClick={closeMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
