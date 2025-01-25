@@ -81,10 +81,10 @@ const Hero = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 flex flex-col md:flex-row justify-between items-center px-6 md:px-32 pt-10 pb-8 w-full gap-10">
+      <section className="relative z-10 flex flex-col md:flex-row justify-between items-center px-6 md:px-32 pt-[4rem] pb-8 w-full gap-10">
         {/* Left Section */}
         <div className="w-full md:w-1/2 md:mr-10">
-          <h2 className="md:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
+          <h2 className="md:text-xl  font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
             Welcome to my Portfolio! <br />
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
               I'm <span className="text-purple-500">Wimukthi Gunarathna</span>,<br />
@@ -122,7 +122,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Buttons */}
-          <div className="mt-4 sm:mt-16 mr-44">
+          <div className="mt-6 sm:mt-10">
             <ResumeButton /> {/* Use the new ResumeButton here */}
           </div>
         </div>
