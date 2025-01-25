@@ -1,95 +1,153 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import NightSky from "./NightSky";
-import DeveloperImg from "../assets/developer.png";
+import ResumeButton from "./ResumeButton"; // Import the new ResumeButton
+import developerImage from "../assets/developer.png"; // Adjust the path as needed
 
 const Hero = () => {
+  const [opacity, setOpacity] = useState(1);
+
+  // Handle scroll event to adjust opacity of the image
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const newOpacity = Math.max(1 - scrollY / 500, 0); // Ensure opacity doesn't go below 0
+    setOpacity(newOpacity);
+  };
+
   useEffect(() => {
-    const letters = document.querySelectorAll(".animated-letter");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate");
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    letters.forEach((letter) => {
-      observer.observe(letter);
-    });
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      letters.forEach((letter) => observer.unobserve(letter));
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const splitText = (text) => {
-    return text.split("").map((letter, index) => (
-      <span key={index} className="animated-letter inline-block opacity-0">
-        {letter}
-      </span>
-    ));
+  // IntersectionObserver hook to handle when elements come into view
+  const useIntersectionObserver = (ref, options) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(entry.isIntersecting);
+        },
+        options
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [ref, options]);
+
+    return isVisible;
+  };
+
+  const textRef = useRef(null);
+  const skillsRef = useRef(null);
+  const imageRef = useRef(null);
+
+  const textIsVisible = useIntersectionObserver(textRef, { threshold: 0.2 });
+  const skillsIsVisible = useIntersectionObserver(skillsRef, { threshold: 0.2 });
+  const imageIsVisible = useIntersectionObserver(imageRef, { threshold: 0.2 });
+
+  // Animation variants for text
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  };
+
+  // Animation variants for skills section
+  const skillVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", staggerChildren: 0.3 } },
+  };
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   return (
-    <div className="relative w-full h-screen flex items-center font-serif justify-center bg-gradient-to-b from-black via-[#0f0e17] to-[#1a1a2e] text-white overflow-hidden">
-      {/* Background Stars */}
-      <NightSky />
+    <div className="relative min-h-screen bg-[#0b1120] text-white font-serif flex items-center overflow-hidden">
+      {/* NightSky Background */}
+      <div className="absolute inset-0 z-0">
+        <NightSky />
+      </div>
 
-      {/* Content Section */}
-      <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 space-y-8 lg:space-y-0">
-        {/* Text Section */}
-        <div className="flex-1 text-left space-y-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
-            Welcome to my Portfolio!
-          </p>
+      {/* Hero Section */}
+      <section className="relative z-10 flex flex-col md:flex-row justify-between items-center px-6 md:px-32 pt-10 pb-8 w-full gap-10">
+        {/* Left Section */}
+        <div className="w-full md:w-1/2 md:mr-10">
+          <h2 className="md:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
+            Welcome to my Portfolio! <br />
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
+              I'm <span className="text-purple-500">Wimukthi Gunarathna</span>,<br />
+            </h1>
+          </h2>
 
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
-            I'm <span className="text-purple-500">Wimukthi Gunarathna</span>,<br />
-          </h1>
+          {/* Fullstack Developer Text Animation */}
+          <motion.p
+            ref={textRef}
+            className="mt-4 text-base md:text-lg text-gray-400 text-justify"
+            initial="hidden"
+            animate={textIsVisible ? "visible" : "hidden"}
+            variants={textVariants}
+          >
+            Fullstack Developer, UX/UI Designer, Mobile App Developer & Data Science Student
+          </motion.p>
 
-          <p className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg">
-            {/* Animated text */}
-            {splitText("FullStack Developer, UX/UI Designer and Data Science Student")}
-          </p>
-
-          <div className="mt-4 sm:mt-6">
-            <a
-              href="/Resume.pdf" // Path to the resume file
-              download="Wimukthi Gunarathna.pdf"
-              className="inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full text-xs sm:text-sm md:text-lg font-semibold shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
-            >
-              Download My Resume
-              <svg
-                className="ml-2 sm:ml-3 w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          {/* Skills Section */}
+          <motion.div
+            ref={skillsRef}
+            className="flex flex-wrap gap-2 mt-6"
+            initial="hidden"
+            animate={skillsIsVisible ? "visible" : "hidden"}
+            variants={skillVariants}
+          >
+            {["React", "JavaScript", "Node.js", "Tailwind"].map((skill) => (
+              <motion.span
+                key={skill}
+                className="px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-full text-sm border border-purple-500 shadow-md shadow-white/10"
+                variants={skillItemVariants}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+                {skill}
+              </motion.span>
+            ))}
+          </motion.div>
+
+          {/* Buttons */}
+          <div className="mt-4 sm:mt-16 mr-44">
+            <ResumeButton /> {/* Use the new ResumeButton here */}
           </div>
         </div>
 
-        {/* Image Section */}
-        <div className="flex-1 flex justify-center order-first lg:order-last">
-          <img
-            src={DeveloperImg}
-            alt="Decorative"
-            className="w-72 sm:w-80 md:w-96 lg:w-[500px] xl:w-[600px] object-cover rounded-lg shadow-lg"
+        {/* Right Section */}
+        <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 md:ml-10">
+          <motion.img
+            ref={imageRef}
+            src={developerImage}
+            alt="Developer Illustration"
+            className="w-[400px] sm:w-[400px] md:w-[450px] h-auto object-contain"
+            style={{ opacity }} // Apply the dynamic opacity value
+            transition={{
+              duration: 0.5, // Smooth fade transition
+              ease: "easeOut",
+            }}
+            initial="hidden"
+            animate={imageIsVisible ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0, scale: 0.8 },
+              visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } },
+            }}
           />
         </div>
-      </div>
+      </section>
     </div>
   );
 };
