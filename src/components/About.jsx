@@ -33,7 +33,7 @@ const About = () => {
           viewport={{ once: false, amount: 0.25 }}
           transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
         >
-          🚀 Passionate frontend developer dedicated to crafting modern,
+          🚀 Passionate fullstack developer dedicated to crafting modern,
           responsive, and immersive web experiences. I specialize in React,
           Tailwind CSS, and intuitive UI/UX design. With a detail-oriented
           mindset, I create sleek and efficient digital solutions. 🚀
