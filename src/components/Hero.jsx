@@ -6,41 +6,32 @@ const Hero = () => {
   useEffect(() => {
     const letters = document.querySelectorAll(".animated-letter");
 
-    // Set animation delay for each letter dynamically
-    letters.forEach((letter, index) => {
-      letter.style.transitionDelay = `${index * 0.05}s`; // Each letter will have a 0.05s delay
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate"); // Add 'animate' class when in view
-        }
-      });
-    }, { threshold: 0.5 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
     letters.forEach((letter) => {
-      observer.observe(letter); // Observe each letter
+      observer.observe(letter);
     });
 
     return () => {
-      letters.forEach((letter) => observer.unobserve(letter)); // Cleanup observer
+      letters.forEach((letter) => observer.unobserve(letter));
     };
   }, []);
 
-  // Function to handle text splitting and adding spaces between words
   const splitText = (text) => {
-    return text.split("").map((letter, index) => {
-      // Check for spaces and return a space if found
-      if (letter === " ") {
-        return <span key={index} className="inline-block">&nbsp;</span>;
-      }
-      return (
-        <span key={index} className="animated-letter inline-block opacity-0">
-          {letter}
-        </span>
-      );
-    });
+    return text.split("").map((letter, index) => (
+      <span key={index} className="animated-letter inline-block opacity-0">
+        {letter}
+      </span>
+    ));
   };
 
   return (
@@ -49,7 +40,7 @@ const Hero = () => {
       <NightSky />
 
       {/* Content Section */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-16">
+      <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 space-y-8 lg:space-y-0">
         {/* Text Section */}
         <div className="flex-1 text-left space-y-6 px-4 sm:px-6 lg:px-8">
           <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-400 to-indigo-600 text-transparent bg-clip-text">
@@ -91,7 +82,7 @@ const Hero = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-center order-first lg:order-last">
           <img
             src={DeveloperImg}
             alt="Decorative"
