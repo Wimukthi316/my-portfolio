@@ -36,7 +36,6 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color:#03070e; /* Black background to fill white space */
+  background-color: black; /* Black background to fill white space */
   z-index: -1; /* Place behind the content */
 }
-
